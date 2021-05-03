@@ -20,11 +20,13 @@ class ContoCorrenteRepository extends ServiceEntityRepository
     }
 
     public function findmoneybyiban($iban){
-        return $this->createQueryBuilder('cc')
-        ->andWhere('cc.iban = : iban_request')
-        ->setParameter('iban_request', $iban)
-        ->getQuery()
-        ->execute();
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT cc
+            FROM App\Entity\ContoCorrente cc
+            WHERE cc.iban = :iban_req'
+        )->setParameter('iban_req', $iban);
+        return $query->getResult();
     }
 
     public function getTransazioniContoCorrente($iban){

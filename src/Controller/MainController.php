@@ -15,7 +15,7 @@ class MainController extends AbstractController
      */
     public function getmoney(Request $request,ContoCorrenteRepository $rep, string $iban): Response
     {
-        return $this->response($request, $rep->findmoneybyiban($iban));
+        return $this->response($request, $rep->findMoneyByIban($iban));
     }
 
     public function response(Request $request , $data, $message = null , $status_code=200):Response{
