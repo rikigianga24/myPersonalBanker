@@ -29,6 +29,7 @@ class AppFixtures extends Fixture
             $utente->setCap(rand(52043,55000));
             $utente->setCivico(rand(00,99));
             $utente->setVia("Via".rand(1,10));
+            $utente->setPassword("abcd");
            
             
             $contocorrente = new ContoCorrente();
