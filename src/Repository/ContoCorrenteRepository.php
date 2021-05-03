@@ -22,7 +22,7 @@ class ContoCorrenteRepository extends ServiceEntityRepository
     public function findmoneybyiban($iban){
         $entityManager = $this->getEntityManager();
         $query = $entityManager->createQuery(
-            'SELECT cc
+            'SELECT cc.saldo
             FROM App\Entity\ContoCorrente cc
             WHERE cc.iban = :iban_req'
         )->setParameter('iban_req', $iban);
