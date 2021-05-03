@@ -16,6 +16,7 @@ class ContoCorrente
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
      */
+    //s
     private $saldo;
 
     /**
